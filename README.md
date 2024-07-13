@@ -61,9 +61,6 @@ GIST aims to support children with autism by providing a comprehensive platform 
 ### Signup Page
 <img src="./static/screenshots/signup.png">
 
-### Login Page
-<img src="./static/screenshots/login.png">
-
 ### Profile Page
 <img src="./static/screenshots/profile.png">
 
