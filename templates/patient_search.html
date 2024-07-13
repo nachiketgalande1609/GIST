@@ -1,0 +1,38 @@
+{% extends 'therapist_base.html' %}
+
+{% block content %}
+
+<div id="patient-search">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{{ url_for('therapist_dashboard') }}">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">User Search</li>
+        </ol>
+    </nav>
+    <div class="card" id="patient-search-card">
+
+        <h4 class="mb-3">User Search</h4>
+
+        <form action="{{ url_for('patient_search') }}" method="POST">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" name="search_query" placeholder="Search Patient"
+                    aria-label="Recipient's username" aria-describedby="basic-addon2">
+                <div class="input-group-append">
+                    <button class="btn btn-dark" type="submit"><i class="bi bi-search"></i></button>
+                </div>
+            </div>
+        </form>
+
+        <div id="search-results-div">
+            <ul class="list-group list-group-flush">
+                {% for user in search_results %}
+                <a href="{{ url_for('patient_details', user_id=user.id) }}"><li class="list-group-item"><img src="../static/images/user.png" class="me-2" width="50px" alt="">
+                    <strong>{{ user.first_name }} {{ user.last_name }}</strong> ({{ user.age }})
+                </li></a>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,75 @@
+{% extends 'user_base.html' %}
+
+{% block content %}
+
+<div id="p_stories">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{ url_for('profile') }}">Home</a></li>
+            <li class="breadcrumb-item"><a href="{{ url_for('grammar.grammar') }}">Grammar</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Stories</li>
+        </ol>
+    </nav>
+    <div class="card" id="stories-card">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 story-section">
+                <h3 class="mb-3">Read the story and answer the questions</h3>
+                <p>{{ story }}</p>
+                <div class="story-control-container">
+                    <div class="d-flex justify-content-between" id="story-control-div">
+                        <a href="{{ url_for('stories', selectedLetter='p') }}"><i
+                                class="bi bi-chevron-double-left"></i>Previous Story</a>
+                        <a href="{{ url_for('stories', selectedLetter='p') }}">Next Story<i
+                                class="bi bi-chevron-double-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 questions-section">
+                <h3 class="mb-3">Questions</h3>
+                <hr>
+                <form action="#" method="post" id="answerForm">
+                    {% for question in questions.questions %}
+                    <div class="mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title mb-2">{{ question.question }}</h5>
+                            <div class="form-group">
+                                {% for option in question.options %}
+                                <div class="form-check">
+                                    <input
+                                        class="form-check-input {% if option == question.correct_answer %}correct{% endif %}"
+                                        type="radio" id="{{ option }}" name="{{ question.question }}"
+                                        value="{{ option }}">
+                                    <label class="form-check-label" for="{{ option }}">{{ option }}</label>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    <div class="d-flex justify-content-end align-items-center">
+                        <a>Skip</a>
+                        <button type="button" id="submitBtn" class="btn btn-dark">Submit Answer</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="answerStatusModal" tabindex="-1" role="dialog" aria-labelledby="answerStatusModalLabel"
+        aria-hidden="true" data-bs-backdrop="static">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content" id="modalContent">
+                <div class="modal-body">
+                    <p id="answerStatusMessage"></p>
+                </div>
+                <div class="d-flex flex-row justify-content-end p-3 grammar-modal-buttons">
+                    <a href="{{url_for('profile')}}" class="btn btn-secondary" target="_top">Home</a>
+                    <a href="{{ url_for('stories', selectedLetter='p') }}" class="btn btn-secondary ms-2"
+                        id="nextQuestionButton">Next Question</a>
+                    <a type="button" class="btn btn-secondary ms-2" id="retryButton">Retry</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% endblock %}

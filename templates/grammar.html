@@ -1,0 +1,160 @@
+{% extends 'user_base.html' %}
+
+{% block content %}
+
+<div id="grammar">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{ url_for('profile') }}">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Grammar</li>
+        </ol>
+    </nav>
+    <div class="card mb-4">
+        <div class="card-body">
+            <h3 class="mb-2 ms-4">Parts of Speech</h3>
+            <div class="row grammar-cards">
+                <div class="col-lg-6">
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <a href="{{ url_for('grammar.nouns') }}">
+                                <div class="card">
+                                    <img class="grammar-card-image" src="../static/images/grammar_page/nouns.png"
+                                        alt="">
+                                    <div class="card-body">
+                                        <p class="card-title text-center">Nouns</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-lg-3">
+                            <a href="{{ url_for('grammar.verbs') }}">
+                                <div class="card">
+                                    <img class="grammar-card-image" src="../static/images/grammar_page/verbs.png"
+                                        alt="">
+                                    <div class="card-body">
+                                        <p class="card-title text-center">Verbs</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-lg-3">
+                            <a href="{{ url_for('grammar.pronouns') }}">
+                                <div class="card">
+                                    <img class="grammar-card-image" src="../static/images/grammar_page/pronouns.png"
+                                        alt="">
+                                    <div class="card-body">
+                                        <p class="card-title text-center">Pronouns</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-lg-3">
+                            <a href="{{ url_for('grammar.adverbs') }}">
+                                <div class="card">
+                                    <img class="grammar-card-image" src="../static/images/grammar_page/adverbs.png"
+                                        alt="">
+                                    <div class="card-body">
+                                        <p class="card-title text-center">Adverbs</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <a href="">
+                                <div class="card">
+                                    <img class="grammar-card-image" src="../static/images/grammar_page/adjectives.png"
+                                        alt="">
+                                    <div class="card-body">
+                                        <p class="card-title text-center">Adjectives</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-lg-3">
+                            <a href="">
+                                <div class="card">
+                                    <img class="grammar-card-image" src="../static/images/grammar_page/prepositions.png"
+                                        alt="">
+                                    <div class="card-body">
+                                        <p class="card-title text-center">Prepositions</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-lg-3">
+                            <a href="">
+                                <div class="card">
+                                    <img class="grammar-card-image" src="../static/images/grammar_page/conjunctions.png"
+                                        alt="">
+                                    <div class="card-body">
+                                        <p class="card-title text-center">Conjunctions</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-lg-3">
+                            <a href="">
+                                <div class="card">
+                                    <img class="grammar-card-image"
+                                        src="../static/images/grammar_page/interjections.png" alt="">
+                                    <div class="card-body">
+                                        <p class="card-title text-center">Interjections</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card shadow">
+        <div class="card-body">
+            <h3 class="mb-2 ms-4">Quiz & Games</h3>
+            <div class="row quiz-card">
+                <div class="col-lg-6">
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <a href="{{ url_for('grammar.grammar_quiz') }}">
+                                <div class="card">
+                                    <img class="grammar-card-image" src="../static/images/grammar_page/quiz.png" alt="">
+                                    <div class="card-body">
+                                        <p class="card-title text-center">Quiz</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-lg-3">
+                            <a href="{{ url_for('grammar.unjumble') }}">
+                                <div class="card">
+                                    <img class="grammar-card-image" src="../static/images/grammar_page/unjumble.png" alt="">
+                                    <div class="card-body">
+                                        <p class="card-title text-center">Unjumble</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-lg-3">
+                            <a href="{{ url_for('stories') }}">
+                                <div class="card">
+                                    <img class="grammar-card-image" src="../static/images/grammar_page/stories.png" alt="">
+                                    <div class="card-body">
+                                        <p class="card-title text-center">Stories</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

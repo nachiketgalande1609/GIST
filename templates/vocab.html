@@ -1,0 +1,66 @@
+{% extends 'user_base.html' %}
+
+{% block content %}
+
+<div id="vocab">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{{ url_for('profile') }}">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Vocabulary Building</li>
+        </ol>
+    </nav>
+    <div class="card" id="vocab-card">
+        <h3 class="mb-2">Vocabulary Building</h3>
+        <div class="row align-items-center mb-4">
+
+            <div class="col-lg-6">
+                <div class="row d-flex justify-content-center align-items-center">
+                    <div class="col-lg-6">
+                        <div class="position-relative d-flex flex-row align-items-center">
+                            <img id="vocab-img" src="{{ main_word_url }}" alt="" class="mb-3">
+                        </div>
+                        <div class="d-flex flex-row">
+                            <h4 class="card-title" id="vocab-word">{{ word }}</h4>
+                            <a class="speakButton" onclick="speakWord('{{ word }}')"><i class="bi bi-volume-up"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div id="vocab-plot-div" class="d-flex flex-column justify-content-center align-items-center">
+                    <div class="d-flex justify-content-center align-items-center">
+                        <img src="{{ plot_url }}" width="80%" alt="">
+                        <strong>My Voice</strong>
+                    </div>
+                    <div class="d-flex justify-content-center align-items-center" id="user-plot" style="visibility: hidden;">
+                        <img id="your-voice-img" src="../static/user_plot/eat.png" width="80%" alt="">
+                        <strong>Your Voice</strong>
+                    </div>
+                    <div class="alert alert-success text-center" id="comparison-msg" style="width: 80%; visibility: hidden;" role="alert">
+                        75% Match - Good job! Try next word
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-6 d-flex justify-content-between vocab-word-navigation w-100">
+                <a href="{{ url_for('vocab.vocab') }}" class="d-flex flex-column align-items-center justify-content-center">
+                    <i class="bi bi-skip-backward-fill"></i>
+                    <p>Previous Word</p>
+                </a>
+                <div class="row flex-column justify-content-center align-items-center">
+                    <h4 class="mb-4 text-center">Say the word with me</h4>
+                    <a id="vocab-mic-btn" class="d-flex justify-content-center align-items-center m-0" onclick="toggleRecord()"><i id="mic-icon" class="bi bi-mic"></i></a>
+                </div>
+                <a href="{{ url_for('vocab.vocab') }}" class="d-flex flex-column align-items-center justify-content-center">
+                    <i class="bi bi-skip-forward-fill"></i>
+                    <p>Next Word</p>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

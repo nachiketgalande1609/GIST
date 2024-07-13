@@ -1,0 +1,1301 @@
+:root {
+    --primary-color: hsl(28, 26%, 50%);
+    --secondary-color: hsl(75, 13%, 94%);
+    --primary-dark: hsl(28, 26%, 30%);
+    --primary-light: hsl(28, 26%, 90%);
+    --white-color: hsl(0, 0%, 100%);
+    --black-color: hsl(0, 0%, 0%);
+}
+
+body {
+    background-color: var(--secondary-color);
+}
+
+.breadcrumb a {
+    color: var(--primary-color);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.font-light {
+    color: #999;
+    font-weight: 500;
+}
+
+/* Scrollbar */
+/* Track */
+::-webkit-scrollbar {
+    width: 6px; /* width of the scrollbar */
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888; /* color of the scrollbar thumb */
+    border-radius: 4px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(43, 48, 53); /* color of the scrollbar thumb on hover */
+  }
+  
+/*  */
+
+.navbar {
+    max-height: 55.964px;
+    box-shadow: 0 0 20px hsl(0, 0%, 75%);
+    z-index: 1000;
+    background-color: var(--secondary-color) !important;
+}
+
+.navbar-brand {
+    color: var(--primary-color);
+    font-weight: bold; 
+}
+
+.sidebar {
+    position: relative;
+    padding: 0;
+    height: calc(100vh - 55.964px);
+    box-shadow: 0 0 20px hsl(0, 0%, 80%);
+}
+
+.sidebar .card {
+    padding: 20px;
+    border: none;
+    border-radius: 0;
+    transition: 0.2s;
+    background-color: var(--secondary-color);
+}
+
+.sidebar .card:hover {
+    background-color: hsl(28, 26%, 95%);
+    /* border-radius: 35.9865px 0 0 35.9865px; */
+}
+
+.sidebar a {
+    text-decoration: none;
+}
+
+.sidebar .card-title {
+    margin-left: 10px;
+    margin-bottom: 0;
+    font-size: 18px;
+}
+
+.active .card{
+    transition: 0.3s;
+    background-color: hsl(28, 26%, 90%);
+    color: var(--primary-color);
+}
+
+.sidebar .active .card:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background-color: var(--primary-color); /* Color of the vertical bar */
+}
+
+#vocab {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: calc(100vh - 55.964px);
+    width: 100%;
+    padding: 20px;
+}
+
+#ttm {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: calc(100vh - 55.964px);
+    width: 100%;
+    padding: 20px 20px 20px 20px;
+}
+
+#stories {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: calc(100vh - 55.964px);
+    width: 100%;
+    padding: 20px 20px 0 20px;
+}
+
+#pronunciation {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: calc(100vh - 55.964px);
+    width: 100%;
+    padding: 20px;
+}
+
+#grammar {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: calc(100vh - 55.964px);
+    width: 100%;
+    padding: 20px 20px 90px 20px;
+}
+
+#grammar-quiz {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: calc(100vh - 55.964px);
+    width: 100%;
+    padding: 20px;
+}
+
+#mic-btn {
+    border: none;
+    background-color: #e62f53;
+    color: var(--white-color);
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    outline: 1px solid hsl(348, 79%, 70%);
+}
+
+.large-soundwave {
+    font-size: 100px;
+}
+
+.signup-login-page {
+    height: calc(100vh - 55.964px);
+}
+.auth-card {
+    border-radius: 0;
+    width: 40%;
+    min-width: 400px;
+}
+
+.btn-dark {
+    background-color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+}
+.btn-dark:hover {
+    background-color: var(--primary-dark) !important;
+}
+
+.btn-outline-primary {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+.btn-outline-primary:hover {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+#rhymingWords {
+    display: none;
+}
+
+#login-image {
+    background-image: url('../images/login_bg.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.signup-login-page input {
+    border-radius: 15px;
+    margin-bottom: 30px;
+}
+
+.signup-login-page h1 {
+    font-weight: bold;
+    margin-bottom: 20px;
+    font-size: 60px;
+}
+
+.signup-login-page p {
+    color: #707070;
+}
+
+.signup-login-page .form-check-label {
+    color: #707070;
+}
+
+#fgt-pwd-btn {
+    position: absolute;
+    right: 0;
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+.story-section {
+    border-right: solid 1px #dedede;
+    height: calc(100vh - 140px - 55.964px);
+}
+
+.questions-section {
+    padding: 0 30px;
+    height: calc(100vh - 240px - 55.964px);
+}
+.questions-section button {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    border: none;
+}
+.questions-section button:hover {
+    background-color: #3885ff;
+}
+.questions-section a {
+    color: var(--primary-color) !important;
+    margin-right: 20px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.story-section {
+    position: relative; /* Ensure positioning context for child elements */
+}
+
+.story-control-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 20px;
+    width: 100%; /* Ensure the container spans the full width */
+}
+
+#story-control-div {
+    display: flex;
+    justify-content: space-between;
+}
+
+#story-control-div a {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/* Talk To Me Page */
+
+#talk-to-me-card {
+    padding: 20px;
+    box-shadow: 0 0 10px #d0d0d0;
+    border-color: var(--white-color);
+}
+
+.chat-container {
+    background-color: var(--white-color);
+    padding: 10px;
+}
+
+.message-container {
+    padding: 15px 5px;
+    height: calc(100vh - 240px - 55.964px) !important;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    overflow-y: scroll;
+}
+
+#messages {
+    height: 400px;
+}
+
+.message-block {
+    display: flex;
+    align-items:start;
+}
+
+.message-block img {
+    margin: 5px;
+}
+
+.message-block hr {
+    margin: 0;
+}
+
+.message-card {
+    max-width: fit-content;
+    border-radius: 0 30px 30px 30px;
+    max-width: 70%;
+}
+
+.message-card-self {
+    max-width: fit-content;
+    border-radius: 15px 0 15px 15px;
+    max-width: 70%;
+    background-color: var(--primary-color);
+}
+
+.message-card strong {
+    padding: 5px 20px;
+}
+
+.messages {
+    border: none;
+    padding: 0;
+}
+
+.message-timestamp {
+    font-size: 12px;
+    opacity: 0.5;
+}
+
+.message-card .message-timestamp {
+    text-align: right;
+}
+
+#messages .card-body {
+    padding: 15px 20px;
+}
+
+#avatar-section {
+    background-image: url('../images/avatar.jpeg');
+    background-size:contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-left: solid 1px #dedede;
+}
+
+#grammar a {
+    text-decoration: none;
+}
+
+.grammar-card-image {
+    border-radius: 5px 5px 0 0;
+}
+
+.grammar-cards {
+    padding-top: 20px;
+}
+
+.grammar-cards .card {
+    margin-bottom: 24px;
+    border: none;
+}
+
+.grammar-cards .card-body {
+    padding: 10px;
+}
+
+#grammar img {
+    margin: 0 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 15px #b5b5b5;
+    border: 10px solid var(--white-color);
+}
+
+.grammar-modal-buttons a {
+    background-color: #fff;
+    color: var(--black-color);
+}
+
+.quiz-card {
+    padding-top: 20px;
+}
+
+.quiz-card .card {
+    border: none;
+}
+
+#grammar p {
+    margin: 0;
+    font-weight: bold;
+}
+
+#grammar-card button {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    border: none;
+}
+#grammar-card button:hover {
+    background-color: #2e7dfc;
+}
+#grammar-card a {
+    color: var(--primary-color);
+    margin-right: 20px;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+#grammar-card {
+    padding: 20px;
+    box-shadow: 0 0 10px #d0d0d0;
+    border-color: var(--white-color);
+}
+
+#stories-card {
+    padding: 20px;
+    box-shadow: 0 0 10px #d0d0d0;
+    border-color: var(--white-color);
+}
+
+#profile-nav {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+
+}
+#profile-nav img {
+    margin-right: 8px;
+}
+#profile-nav .card:hover {
+    background-color: var(--white-color);
+}
+#profile-nav .active .card{
+    transition: 0.8s;
+    background-color: var(--white-color)fff;
+    color: var(--primary-color);
+}
+
+#notification-navlink {
+    border: solid 1px #979797;
+    border-radius: 5px;
+    padding: 8px;
+}
+
+.bi-house {
+    border: solid 1px #979797;
+    border-radius: 5px;
+    padding: 8px;
+}
+
+.rounded-circle {
+    top: 5px;
+    left: 40px;
+    width: 15px;
+    height: 15px;
+}
+
+/* Vocabulary Page */
+
+#vocab-card {
+    padding: 20px;
+    box-shadow: 0 0 10px #d0d0d0;
+    border-color: var(--white-color);
+}
+
+#vocab-img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+#vocab-word {
+    width: 100%;
+    text-align: center;
+    border: solid 1px var(--primary-color);
+    border-radius: 10px 0 0 10px;
+    padding: 10px;
+    color: var(--primary-color);
+}
+
+.speakButton {
+    background-color: var(--primary-color);
+    border: none;
+    width: 62px;
+    height: 51px;
+    border-radius: 0 10px 10px 0;
+    color: var(--white-color)fff;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--white-color);
+}
+
+#vocab-mic-btn {
+    background-color: hsl(348, 79%, 54%);
+    border: none;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    outline: 1px solid hsl(348, 79%, 70%);
+    color: var(--white-color);
+    font-size: 30px;
+}
+
+.grow-shrink {
+    animation: grow-shrink-animation 1s infinite alternate;
+}
+
+@keyframes grow-shrink-animation {
+    0% {
+        outline-width: 1px;
+    }
+    50% {
+        outline-width: 10px;
+    }
+    100% {
+        outline-width: 1px;
+    }
+}
+
+
+
+
+#vocab-speak-section img {
+    margin: 30px 0;
+}
+
+#vocab-plot-div img {
+    border: 1px solid #bebebe;
+    margin-bottom: 10px;
+}
+
+#vocab-plot-div div {
+    position: relative;
+}
+
+#vocab-plot-div strong {
+    position: absolute;
+    bottom: 20px;
+    right: 12%;
+}
+
+.vocab-word-navigation a {
+    text-decoration: none;
+    background-color: var(--white-color);
+    font-size: 20px;
+    color: var(--primary-color);
+    margin-left: 50px;
+}
+
+#next-word p {
+    font-size: 20px;
+}
+
+#connect-btn {
+    border: solid 1px var(--primary-color);
+    border-radius: 35px 35px 0 35px;
+    padding: 10px 30px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    text-decoration: none;
+    color: var(--white-color);
+    background-color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#video-container {
+    border-radius: 10px 10px 0 0;
+    margin-top: 50px;
+    padding: 0;
+    background-color: var(--black-color);
+}
+
+#video-container .col-lg-6 {
+    padding: 0;
+}
+
+#video-container video {
+    transform: scaleX(-1);
+    margin: 0;
+    width: 100%;
+    height: 319.71px;
+}
+
+#video1 {
+    border-radius: 0 10px 0 0;
+}
+
+#video2 {
+    border-radius: 10px 0 0 0;
+}
+
+#call-controls {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--black-color);
+    padding-bottom: 10px;
+    border-radius: 0 0 10px 10px;
+}
+
+.call-btn {
+    color: var(--white-color);
+    padding: 10px;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    width: 100px;
+}
+
+.call-btn {
+    font-size: 12px;
+}
+
+.call-btn i {
+    font-size: 20px;
+}
+
+
+.leave-btn {
+    position: absolute;
+    right: 20px;
+    color: var(--white-color);
+    background-color: #da1b41;
+    border-radius: 10px;
+    padding: 8px 20px;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#answerStatusMessage {
+    color: var(--white-color);
+    text-align: center;
+    font-size: 30px;
+}
+
+/* Pronunciation Page */
+
+#pronunciation-card {
+    padding: 20px;
+    box-shadow: 0 0 10px #d0d0d0;
+    border-color: var(--white-color);
+}
+
+#sound-section {
+    border-right: 1px #dedede solid;
+    padding: 0 40px;
+    height: calc(100vh - 200px);
+    overflow-y: scroll;
+}
+
+#action-section {
+    padding: 0 40px;
+}
+
+.pronunciation-word-card {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+}
+
+.pronunciation-word-card h2 {
+    margin: 0;
+}
+
+#pronunciation-speak-btn {
+    background-color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    color: var(--white-color);
+    font-size: 25px;
+    cursor: pointer;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    border-radius: 0 8px 8px 0;
+}
+
+.pronunciation-action-card {
+    border-width: 3px;
+    color: var(--black-color);
+    padding: 20px 20px 20px 20px;
+    border-color: #cacaca;
+}
+
+.letter-card-parent {
+    border: none;
+}
+
+.letter-card {
+    border: 2px solid #cacaca;
+    border-right: none;
+    border-radius: 8px 0 0 8px;
+}
+
+.highlight {
+    border-color: var(--primary-color);
+}
+
+.highlight::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 8px;
+    height: 100%;
+    background-color: var(--primary-color); /* Color of the vertical bar */
+    border-radius: 8px 0 0 8px;
+}
+
+#pronunciation a {
+    text-decoration: none;
+}
+
+#prac-with-words-button {
+    cursor: pointer;
+}
+#tongue-twisters-button {
+    cursor: pointer;
+}
+#pronunciation-stories-button {
+    cursor: pointer;
+}
+
+#pronunciation-iframe {
+    height: 650px;
+    border: 1px solid #dedede;
+    border-radius: 8px;
+}
+
+.prac-words-speak-btn {
+    width: 100%;
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0 0 8px 8px;
+    height: 40px;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+
+#action-content {
+    position: relative;
+}
+
+#pronunciation-loading-icon {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+}
+
+/* Profile Page */
+
+#profile {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: calc(100vh - 55.964px);
+    width: 100%;
+    padding: 20px 30px 90px 30px;
+}
+
+#profile .score {
+    font-size: 24px;
+    font-weight: 400;
+}
+
+#profile a {
+    text-decoration: none;
+}
+
+#profile p {
+    color: var(--black-color);
+}
+
+#progress-expand-collapse-btn {
+    margin: 8px 0 24px;
+}
+
+#progress-expand-collapse-btn {
+    font-size: 20px;
+}
+
+#difficulty-info i:hover::after {
+    content: "The difficulty level of the challenges is dynamically tailored to match the user's advancing proficiency."; /* Sets the content of the pseudo-element to the value of the title attribute */
+    background-color: var(--black-color); /* Background color */
+    color: #fff; /* Text color */
+    padding: 10px; /* Padding around the text */
+    border-radius: 5px; /* Border radius for rounded corners */
+    position: absolute; /* Position the tooltip absolutely */
+    top: -30px; /* Position from the top */
+    right: 35px;
+    z-index: 1; /* Ensure the tooltip appears above other elements */
+    font-size: 14px; /* Font size */
+    font-family: Arial, sans-serif; /* Font family */
+    font-style: normal;
+    white-space: nowrap; /* Prevent line breaks */
+    visibility: hidden; /* Hide the tooltip by default */
+    opacity: 0; /* Make it fully transparent */
+    transition: opacity 0.3s ease; /* Add transition for smooth appearance */
+    visibility: visible; /* Make the tooltip visible when hovering */
+    opacity: 1; /* Make it fully opaque */
+}
+
+.user-prof-activity-cards .card {
+    padding: 10px;
+    text-align: center;
+    border: none;
+}
+.user-prof-activity-cards p {
+    margin: 10px 0 0 0;
+    font-weight: bold;
+}
+
+.user-prof-activity-cards img {
+    margin: 0 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 15px #b5b5b5;
+    border: 10px solid var(--white-color);
+}
+
+.profile-session-number {
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 20px;
+    color: var(--black-color);
+    margin-right: 20px;
+}
+
+#session-logs-card {
+    box-shadow: 0 0 10px #d0d0d0;
+    border-color: var(--white-color);
+}
+
+#session-logs-card .card {
+    background-color: #f3f3f3;
+    border-color: #f3f3f3;
+}
+
+#activities-card {
+    box-shadow: 0 0 10px #d0d0d0;
+    border-color: var(--white-color);
+}
+
+#activities-card .card {
+    padding: 0;
+}
+
+#progress-card {
+    box-shadow: 0 0 10px #d0d0d0;
+    border-color: var(--white-color);
+    padding: 0 20px;
+}
+
+.locked-badge {
+    background-color: #ff0000;
+    text-decoration: none;
+    color: var(--white-color);
+    border-radius: 30px;
+    padding: 5px 11px;
+    font-size: 24px;
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    box-shadow: 0 0 10px #8a8a8a;
+}
+
+.pronunciation-pass {
+    color: #32BA7C;
+    margin-left: 10px;
+}
+.pronunciation-fail {
+    color: #FF9C07;
+    margin-left: 10px;
+}
+
+.pronunciation-rating-pass {
+    color: #32BA7C;
+    font-size: 18px;
+}
+
+.pronunciation-rating-fail {
+    color: #FF9C07;
+    font-size: 18px;
+}
+
+.pronunciation-history-play {
+    color: #FF6B6B;
+    font-size: 18px;
+}
+
+#pronunciation-profile-card {
+    background-color: #f3f3f3;
+    border-color: #f3f3f3;
+}
+
+#vocabulary-profile-card {
+    background-color: #f3f3f3;
+    border-color: #f3f3f3;
+}
+
+#vocabulary-profile-card a {
+    text-decoration: none;
+}
+
+#grammar-progress-card {
+    background-color: #f3f3f3;
+    border-color: #f3f3f3;
+}
+
+#grammar-progress-card a {
+    text-decoration: none;
+}
+
+#stories-progress-card {
+    background-color: #f3f3f3;
+    border-color: #f3f3f3;
+}
+
+#stories-progress-card a {
+    text-decoration: none;
+}
+
+.profile-word-count {
+    color: var(--black-color);
+    font-weight: bold;
+}
+
+#progress-card p {
+    font-weight: 500;
+    font-size: 17px;
+}
+
+#progress-card h6 {
+    margin: 0;
+}
+
+.profile-hidden {
+    display: none;
+}
+
+/* practice With Words */
+
+#pww {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: calc(100vh);
+    width: 100%;
+    padding: 20px 20px 0 20px;
+}
+
+#pww img {
+    height: 500px;
+    border-radius: 5px 5px 0 0;
+}
+
+/* Tongue Twisters */
+
+#ttw {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: calc(100vh - 55.964px);
+    width: 100%;
+    padding: 20px 20px 0 20px;
+}
+
+.ttw-speak-btn {
+    position: absolute;
+    right: 20px;
+    top: 16px;
+}
+
+/* Pronunciation Stories */
+
+#p_stories {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: calc(100vh - 55.964px);
+    width: 100%;
+    padding: 20px 20px 0 20px;
+}
+
+/* Home Page */
+
+#home-page {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: calc(100vh - 55.964px);
+    width: 100%;
+    padding: 0 20px;
+}
+
+.home-page-btn {
+    width: 200px;
+    padding: 20px;
+    border-radius: 100px;
+}
+
+.active-btn .card {
+    background-color: hsl(28, 26%, 95%);
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    border-width: 3px;
+}
+
+/* Therapist Base */
+
+#sidebar-add-patient-btn {
+    background-color: var(--primary-color);
+    padding: 10px 20px;
+    border-radius: 22px;
+    color: var(--white-color);
+    text-align: center;
+}
+
+/* Therapist Dashboard */
+
+#therapist-dashboard {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: calc(100vh - 55.964px);
+    width: 100%;
+    padding: 20px 20px 20px 32px;
+}
+
+#upcoming-sessions-card {
+    box-shadow: 0 0 10px #d0d0d0;
+    border-color: var(--white-color);
+}
+
+#upcoming-sessions-card .card {
+    background-color: #f3f3f3;
+    border-color: #f3f3f3;
+}
+
+#calendar-card {
+    box-shadow: 0 0 10px #d0d0d0;
+    border-color: var(--white-color);
+}
+
+#calendar-card .card {
+    background-color: #f3f3f3;
+    border-color: #f3f3f3;
+}
+
+#review-sessions-card {
+    box-shadow: 0 0 10px #d0d0d0;
+    border-color: var(--white-color);
+}
+
+/* Add Patient Page */
+
+#add-patient {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: calc(100vh - 55.964px);
+    width: 100%;
+    padding: 20px;
+}
+
+#add-patient .card {
+    padding: 30px;
+    box-shadow: 0 0 10px #d0d0d0;
+    border-color: var(--white-color);
+}
+
+#add-new-session-btn {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+
+.activity-checked-badge {
+    text-decoration: none;
+    color: var(--black-color);
+    border-radius: 20px;
+    font-size: 40px;
+    background-color: var(--white-color);
+    padding: 0 10px;
+    border-radius: 50%;
+    position: absolute;
+    top: 3px;
+    right: 3px;
+}
+
+/* Patient Details Page */
+
+#patient-details {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: calc(100vh - 55.964px);
+    width: 100%;
+    padding: 20px;
+    background-color: var(--secondary-color);
+}
+
+#patient-details-card {
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 0 10px #d0d0d0;
+    border-color: var(--white-color);
+    background-color: var(--white-color);
+}
+
+.patient-details-slider {
+    background-color: #ececec;
+    padding: 8px;
+    border-radius: 30px;
+}
+
+.patient-details-slider button {
+    width: 200px;
+    line-height: 40px;
+    color: #8e8e8e;
+    border-radius: 25px !important;
+    font-weight: 500;
+}
+
+.patient-details-slider-active {
+    background-color: var(--white-color);
+    border-color: #a9a9a9;
+    color: var(--black-color) !important;
+}
+.patient-details-slider-active:hover {
+    background-color: var(--white-color);
+    border-color: #a9a9a9;
+}
+
+#pronunciation-details-card {
+    background-color: #f3f3f3;
+    border-color: #f3f3f3;
+}
+
+.add-comment-btn {
+    font-weight: bold;
+    color: var(--primary-color);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#review-sessions-card span {
+    border: 1px solid #ecdaff;
+    border-radius: 17px;
+    background-color: #ecdaff;
+    padding: 5px 10px;
+    margin-left: 10px;
+}
+
+#review-sessions-card .card {
+    background-color: #f3f3f3;
+    border-color: #f3f3f3;
+}
+
+.dashboard-review-activity-badge {
+    display: inline-block;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 20px;
+    color: var(--black-color);
+    margin-right: 20px;
+    width: 130px;
+    text-align: center;
+}
+
+/* Patient Search Page */
+
+#patient-search {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: calc(100vh - 55.964px);
+    width: 100%;
+    padding: 20px 20px 20px 32px;
+}
+
+#patient-search-card {
+    padding: 30px;
+    box-shadow: 0 0 10px #d0d0d0;
+    border-color: var(--white-color);
+    height: calc(100vh - 55.964px - 40px);
+}
+
+#patient-search-card button {
+    border-radius: 0 8px 8px 0;
+}
+
+#search-results-div li {
+    padding: 10px 20px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+#search-results-div a {
+    text-decoration: none;
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: #ced4da; /* Optional: restore default border color */
+}
+
+/* Connect Page */
+
+#connect {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: calc(100vh - 55.964px);
+    width: 100%;
+    padding: 20px;
+}
+
+#upcoming-sessions-list li {
+    background-color: #f3f3f3;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+/* Profile Progress Bar */
+
+@keyframes progress {
+    0% {
+        --percentage: 0;
+    }
+
+    100% {
+        --percentage: var(--value);
+    }
+}
+
+@property --percentage {
+    syntax: '<number>';
+    inherits: true;
+    initial-value: 0;
+}
+
+
+
+[role="progressbar"] {
+    --percentage: 0%;
+    --primary: var(--color);
+    --secondary: var(--primary-light);
+    --size: 80px;
+    animation: progress 2s 0.5s forwards;
+    width: var(--size);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+}
+
+[role="progressbar"]::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: conic-gradient(var(--primary) calc(var(--percentage) * 1%), var(--secondary) 0);
+    mask: radial-gradient(white 55%, transparent 0);
+    mask-mode: alpha;
+    -webkit-mask: radial-gradient(#0000 55%, #000 0);
+    -webkit-mask-mode: alpha;
+}
+
+[role="progressbar"]::after {
+    counter-reset: percentage var(--value);
+    content: counter(percentage) '%';
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: calc(var(--size) / 4.5);
+    color: var(--primary);
+}

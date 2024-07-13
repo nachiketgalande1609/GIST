@@ -1,0 +1,31 @@
+{% extends 'user_base.html' %}
+
+{% block content %}
+
+<div id="ttm">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{{ url_for('profile') }}">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Talk to me</li>
+        </ol>
+    </nav>
+    <div class="card" id="talk-to-me-card">
+        <div class="row">
+            <div class="col-lg-12 chat-container">
+                <div class="card-body message-container" id="messages"> <!-- messagesDiv -->
+                    <div class="d-flex justify-content-end message-block mb-3"> <!-- MessageBlock -->
+    
+                    </div>
+                    <div class="d-flex message-block mb-3"> <!-- MessageBlock -->
+    
+                    </div>
+                </div>
+                <div class="d-flex justify-content-center align-items-center">
+                    <a onclick="startSpeechRecognition('ttm')" id="mic-btn"><i id="mic" class="bi bi-mic fs-2"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>    
+</div>
+
+{% endblock %}

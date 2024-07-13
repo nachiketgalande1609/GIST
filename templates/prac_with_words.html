@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+
+<body>
+    <div id="pww">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-4 p-4 d-flex justify-content-center">
+                    <div class="card" style="width: 70%;">
+                        <div style="overflow: hidden; height: 352px;">
+                            <img src="../static//images/pronunciation/pen.jpg" alt="" class="w-100 h-100"
+                                style="object-fit: cover;">
+                        </div>
+                        <div class="text-center p-2">
+                            <h4>Pen</h4>
+                        </div>
+                        <div id="prac-words-speak-btn" class="prac-words-speak-btn" onclick="speakWord('pen')">
+                            <i class="bi bi-volume-up"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-lg-6 pww-img">
+                            <div id="vocab-plot-div" class="d-flex flex-column justify-content-center align-items-center">
+                                <div class="d-flex justify-content-center align-items-center">
+                                    <img src="../static/plot/cup.wav.png" width="100%" style="height: 200px !important;" alt="">
+                                    <strong>My Voice</strong>
+                                </div>
+                                <div class="d-flex justify-content-center align-items-center" id="user-plot" style="visibility: hidden;">
+                                    <img id="your-voice-img" src="../static/user_plot/eat.png" width="100%" style="height: 200px !important;" alt="">
+                                    <strong>Your Voice</strong>
+                                </div>
+                                <div class="alert alert-success text-center" id="comparison-msg" style="width: 100%; visibility: hidden;" role="alert">
+                                    85% Match - Good job! Try next word
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 d-flex justify-content-between vocab-word-navigation w-100">
+                    <a href="{{ url_for('vocab.vocab') }}" class="d-flex flex-column align-items-center justify-content-center" style="background-color: var(--secondary-color);">
+                        <i class="bi bi-skip-backward-fill"></i>
+                        <p>Previous Word</p>
+                    </a>
+                    <div class="row flex-column justify-content-center align-items-center">
+                        <h4 class="mb-2 text-center">Say the word with me</h4>
+                        <a id="vocab-mic-btn" class="d-flex justify-content-center align-items-center m-0" onclick="toggleRecord()"><i id="mic-icon" class="bi bi-mic"></i></a>
+                    </div>
+                    <a href="{{ url_for('vocab.vocab') }}" class="d-flex flex-column align-items-center justify-content-center" style="background-color: var(--secondary-color);">
+                        <i class="bi bi-skip-forward-fill"></i>
+                        <p>Next Word</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <style>
+        .pww-img img {
+            border: 1px solid #bebebe;
+            margin-bottom: 8px;
+        }
+    </style>
+    <script src="../static/js/bootstrap.bundle.min.js"></script>
+    <script src="../static/js/jquery-3.5.1.slim.min.js"></script>
+    <script src="../static/js/script.js"></script>
+</body>
+
+</html>

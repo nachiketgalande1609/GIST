@@ -1,0 +1,26 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="light">
+    <div class="container-fluid">
+        <a class="navbar-brand ms-4" href="{% if current_user.is_therapist %}{{url_for('therapist_dashboard')}}{% else %}{{url_for('profile')}}{% endif %}"><img src="../static/images/GiST.png" height="40px" alt=""></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="{% if current_user.is_therapist %}{{url_for('therapist_dashboard')}}{% else %}{{url_for('profile')}}{% endif %}"><i class="bi bi-house"></i></a>
+                {% if current_user.is_authenticated %}
+                <a class="nav-link position-relative">
+                    <i class="bi bi-bell" id="notification-navlink"></i>
+                    <span
+                        class="position-absolute translate-middle p-1 bg-danger border border-light rounded-circle">
+                    </span>
+                </a>
+                <a class="nav-link" href="{{url_for('auth.logout')}}">Logout</a>
+                {% else %}
+                <a class="nav-link" href="{{url_for('auth.login')}}">Login</a>
+                <a class="nav-link" href="{{url_for('auth.signup')}}">Signup</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,72 @@
+{% extends 'user_base.html' %}
+
+{% block content %}
+
+<div id="connect">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{{ url_for('profile') }}">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Connect</li>
+        </ol>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="card p-3">
+                    <h4 class="mb-4">Book a Session</h4>
+                    <div class="card-body p-0">
+                        <form action="" method="POST">
+                            <div class="mb-3">
+                                <label for="date" class="form-label">Date</label>
+                                <input type="date" class="form-control" id="date" name="date" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="time" class="form-label">Time</label>
+                                <input type="time" class="form-control" id="time" name="time" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="message" class="form-label">Message</label>
+                                <textarea class="form-control" id="message" name="message" rows="3" required></textarea>
+                            </div>
+                            <div class="d-flex justify-content-end">
+                                <button type="submit" class="btn btn-dark">Submit Request</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card p-3">
+                    <h4 class="mb-4">Upcoming Meetings</h4>
+                    <div class="card-body p-0">
+                        <ul class="p-0 m-0" id="upcoming-sessions-list">
+                            <li class="d-flex align-items-center justify-content-between">
+                                <div class="d-flex flex-column">
+                                    <strong>Session 1</strong>
+                                    09 Apr 2024 - 10:00 AM
+                                </div>
+                                <a href="{{ url_for('session_call') }}" class="btn btn-dark">Join Meeting</a>
+                            </li>
+                            <li class="d-flex align-items-center justify-content-between">
+                                <div class="d-flex flex-column">
+                                    <strong>Session 2</strong>
+                                    10 Apr 2024 - 10:00 AM
+                                </div>
+                                <a href="{{ url_for('session_call') }}" class="btn btn-dark">Join Meeting</a>
+                            </li>
+                            <li class="d-flex align-items-center justify-content-between">
+                                <div class="d-flex flex-column">
+                                    <strong>Session 3</strong>
+                                    11 Apr 2024 - 10:00 AM
+                                </div>
+                                <a href="{{ url_for('session_call') }}" class="btn btn-dark">Join Meeting</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

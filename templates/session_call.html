@@ -1,0 +1,56 @@
+{% extends 'user_base.html' %}
+
+{% block content %}
+<div class="container-fluid">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mt-4">
+          <li class="breadcrumb-item"><a href="{{ url_for('profile') }}">Home</a></li>
+          <li class="breadcrumb-item"><a href="{{ url_for('connect') }}">Connect</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Meeting</li>
+        </ol>
+    </nav>
+    <div class="container">
+        <div class="row" id="video-container">
+            <div class="col-lg-6">
+                <video id="video1" autoplay></video>
+            </div>
+            <div class="col-lg-6">
+                <video id="video2" autoplay></video>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col" id="call-controls">
+                <a class="call-btn"><i class="bi bi-mic"></i>Mic</a>
+                <a class="call-btn"><i class="bi bi-camera-video"></i>Stop Video</a>
+                <a class="call-btn"><i class="bi bi-people-fill"></i>Participants</a>
+                <a class="call-btn"><i class="bi bi-chat-left-fill"></i>Chat</a>
+                <a class="call-btn"><i class="bi bi-record-circle"></i>Record</a>
+                <a class="call-btn"><i class="bi bi-emoji-smile-fill"></i>Reactions</a>
+                <a class="leave-btn"></i>Leave</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Get access to the camera and stream both video feeds
+    navigator.mediaDevices.getUserMedia({ video: true })
+        .then(function (stream) {
+            // Video feed 1
+            var video1 = document.getElementById('video1');
+            video1.style.objectFit = 'cover'
+            // video1.srcObject = stream;
+            video1.src = '';
+
+            // Create another video element for the second feed
+            var video2 = document.getElementById('video2');
+            video2.style.objectFit = 'cover'
+            video2.muted = true;
+            video2.src = '../static/video/therapist.mp4';
+        })
+        .catch(function (err) {
+            console.log('Error: ' + err);
+        });
+</script>
+
+{% endblock %}

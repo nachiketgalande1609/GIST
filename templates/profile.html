@@ -1,0 +1,574 @@
+{% extends 'user_base.html' %}
+
+{% block content %}
+
+<div id="profile">
+    <div class="row">
+
+        <!-- First Column -->
+        <div class="col-lg-8">
+            <!-- Activities Card -->
+            <div class="row mb-4">
+                <div class="card" id="activities-card">
+                    <div class="card-body">
+                        <h4 class="mb-4">Activities</h4>
+                        <div class="row user-prof-activity-cards">
+                            <div class="col-lg-3">
+                                <a href="{{url_for('vocab.vocab')}}">
+                                    <div class="card">
+                                        <img src="../static/images/profile/vocab.png" alt="">
+                                        <div class="card-body">
+                                            <p>Vocabulary Building</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-lg-3">
+                                <a href="{{url_for('grammar.grammar')}}">
+                                    <div class="card">
+                                        <img src="../static/images/profile/grammar.png" alt="">
+                                        <div class="card-body">
+                                            <p>Grammar</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-lg-3">
+                                <a href="{{url_for('pronunciation')}}">
+                                    <div class="card">
+                                        <img src="../static/images/profile/pronunciation.png" alt="">
+                                        <div class="card-body">
+                                            <p>Pronunciation</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-lg-3">
+                                <a href="{{url_for('talk_to_me')}}">
+                                    <div class="card">
+                                        <img src="../static/images/profile/ttm.jpg" alt="">
+                                        <div class="card-body">
+                                            <p>Talk to me</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- --------------- -->
+
+            <!-- Session Logs Card -->
+            <div class="row">
+                <div class="card" id="session-logs-card">
+                    <div class="card-body">
+                        <h4 class="mb-4">Session Logs</h4>
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <a class="profile-session-number" style="background-color: rgb(194, 227, 255);">Session 1</a><a>10 Apr 2024</a>
+                                <p class="mt-3">During today's session, {{ current_user.first_name }} actively engaged
+                                    in exercises
+                                    aimed at enhancing expressive language skills and social interaction. He
+                                    demonstrated significant progress in articulating thoughts and feelings, employing
+                                    descriptive language with more ease. Through role-playing scenarios and visual aids,
+                                    {{ current_user.first_name }} showed improved understanding of social cues and
+                                    displayed enhanced
+                                    reciprocity during interactions. Sensory modulation techniques were seamlessly
+                                    integrated to address any sensory sensitivities, resulting in increased comfort and
+                                    engagement. Moving forward, we plan to further explore advanced communication
+                                    strategies and continue addressing sensory needs to foster continued growth and
+                                    development.</p>
+                                <div class="d-flex justify-content-end">
+                                    <a style="color: hsl(28, 26%, 50%); font-weight: bold;">View Details<i
+                                            class="bi bi-arrow-right-circle-fill ms-1"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <a class="profile-session-number" style="background-color: rgb(194, 227, 255);">Session
+                                    2</a><a>07 Apr 2024</a>
+                                <p class="mt-3">
+                                    In today's session with {{ current_user.first_name }}, we focused on fostering
+                                    communication
+                                    skills and social engagement. He actively participated in various activities
+                                    aimed at expanding vocabulary and practicing sentence formation. Notably, {{
+                                    current_user.first_name }}
+                                    demonstrated increased confidence in initiating and maintaining conversations,
+                                    showcasing progress in pragmatic language use. By incorporating sensory-friendly
+                                    approaches, we ensured a conducive environment for learning, allowing him to
+                                    fully engage in the session. Looking ahead, we aim to continue building on this
+                                    momentum, further refining communication abilities and promoting social interactions
+                                    both within and outside therapy sessions.</p>
+                                <div class="d-flex justify-content-end">
+                                    <a style="color: hsl(28, 26%, 50%); font-weight: bold;">View Details<i
+                                            class="bi bi-arrow-right-circle-fill ms-1"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <a class="profile-session-number" style="background-color: rgb(194, 227, 255);">Session
+                                    3</a><a>04 Apr 2024</a>
+                                <p class="mt-3">In the session with {{ current_user.first_name }} today, our emphasis was on refining
+                                    communication strategies and reinforcing social interaction skills. Through
+                                    interactive exercises, he exhibited notable improvement in expressing thoughts
+                                    and emotions more effectively. Additionally, {{ current_user.first_name }} demonstrated increased
+                                    awareness of non-verbal cues, contributing to smoother interactions. By
+                                    incorporating tailored sensory techniques, we created a supportive environment
+                                    conducive to learning and growth. As we progress, our focus will be on consolidating
+                                    these gains and exploring additional avenues to enhance communication fluency and
+                                    social engagement.</p>
+                                <div class="d-flex justify-content-end">
+                                    <a style="color: hsl(28, 26%, 50%); font-weight: bold;">View Details<i
+                                            class="bi bi-arrow-right-circle-fill ms-1"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-end">
+                            <a style="color: hsl(28, 26%, 50%); font-weight: bold;">View More<i
+                                    class="bi bi-arrow-right-circle-fill ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ----------------- -->
+        </div>
+        <!-- ------------ -->
+
+        <!-- Second Column -->
+        <div class="col-lg-4" style="padding: 0 20px;">
+            <div class="card mb-4" id="progress-card">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <h4 class="card-title mb-4">Your Profile</h4>
+                        <a data-toggle="modal" data-target="#updateProfileModal"
+                            style="color: hsl(28, 26%, 50%); cursor: pointer;"><i
+                                class="bi bi-pencil-square fs-4"></i></a>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="mb-4">
+                                <h6 class="font-light">Name</h6>
+                                <p>{{ current_user.first_name }} {{ current_user.last_name }}</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="mb-4">
+                                <h6 class="font-light">Age</h6>
+                                <p>{{ current_user.age }}</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            {% if current_user.therapist_email %}
+                            <div class="mb-4">
+                                <h6 class="font-light">Therapist Email</h6>
+                                <p>{{ current_user.therapist_email }}</p>
+                            </div>
+                            {% endif %}
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="mb-4">
+                                <h6 class="font-light">Date of Birth</h6>
+                                <p>{% if current_user.dob %}{{ current_user.dob }}{% else %}-{% endif %}</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 profile-hidden">
+                            <div class="mb-4">
+                                <h6 class="font-light">Gender</h6>
+                                <p>{% if current_user.gender %}{{ current_user.gender }}{% else %}-{% endif %}</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 profile-hidden">
+                            <div class="mb-4">
+                                <h6 class="font-light">Father's Name</h6>
+                                <p>{% if current_user.father_name %}{{ current_user.father_name }}{% else %}-{% endif
+                                    %}</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 profile-hidden">
+                            <div class="mb-4">
+                                <h6 class="font-light">Mother's Name</h6>
+                                <p>{% if current_user.mother_name %}{{ current_user.mother_name }}{% else %}-{% endif
+                                    %}</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 profile-hidden">
+                            <div class="mb-4">
+                                <h6 class="font-light">Address</h6>
+                                <p>{% if current_user.address %}{{ current_user.address }}{% else %}-{% endif %}</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 profile-hidden">
+                            <div class="mb-4">
+                                <h6 class="font-light">State</h6>
+                                <p>{% if current_user.state %}{{ current_user.state }}{% else %}-{% endif %}</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 profile-hidden">
+                            <div class="mb-4">
+                                <h6 class="font-light">Pincode</h6>
+                                <p>{% if current_user.pincode %}{{ current_user.pincode }}{% else %}-{% endif %}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-end">
+                        <a onclick="expandProfile(this)" style="color: hsl(28, 26%, 50%); font-weight: bold;">View
+                            More<i class="bi bi-chevron-down ms-2"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mb-4" id="progress-card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="d-flex justify-content-between">
+                            <h4 class="card-title mt-2 mb-4">Difficulty Level</h4>
+                            <a id="difficulty-info"><i class="bi bi-info-circle"></i></a>
+                        </div>
+                        <iframe src="../static/difficultyBar/difficulty.html" frameborder="0" height="120px"></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mb-4" id="progress-card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="d-flex justify-content-between align-items-center" onclick="expandProgress(this)"
+                            style="cursor: pointer;">
+                            <h4 class="card-title mt-2 mb-4">Your Progress</h4>
+                            <i class="bi bi-chevron-down" id="progress-expand-collapse-btn"></i>
+                        </div>
+                        <div id="progress-hidden" style="display: none;">
+                            <div class="card mb-4" id="grammar-progress-card">
+                                <div class="card-body">
+                                    <h5 class="card-title mb-4">Grammar</h5>
+                                    <div class="d-flex flex-row align-items-center grammar-progress">
+                                        <div role="progressbar" aria-valuenow="67" aria-valuemin="0" aria-valuemax="100"
+                                            style="--value: {{ grammar_score_perc }};--color: {{ grammar_score_color}}">
+                                        </div>
+                                        <div class="row ms-4 w-100">
+                                            <div class="col-lg-4 text-center p-0">
+                                                <strong class="score" id="grammar-perc"
+                                                    data-percent="{{ grammar_score_perc }}">0%</strong><br>
+                                                <strong>Percent</strong>
+                                            </div>
+                                            <div class="col-lg-4 text-center p-0">
+                                                <strong class="score">{{ score.total_grammar_score }}</strong><br>
+                                                <strong>Attempted</strong>
+                                            </div>
+                                            <div class="col-lg-4 text-center p-0">
+                                                <strong class="score">{{ score.total_correct_grammar_score
+                                                    }}</strong><br>
+                                                <strong>Correct</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card mb-4" id="stories-progress-card">
+                                <div class="card-body">
+                                    <h5 class="card-title mb-4">Stories</h5>
+                                    <div class="d-flex flex-row align-items-center">
+                                        <div role="progressbar" aria-valuenow="67" aria-valuemin="0" aria-valuemax="100"
+                                            style="--value: {{ stories_score_perc }}; --color: {{ stories_score_color }}">
+                                        </div>
+                                        <div class="row ms-4 w-100">
+                                            <div class="col-lg-4 text-center p-0">
+                                                <strong class="score" id="stories-perc"
+                                                    data-percent="{{ stories_score_perc }}">0%</strong><br>
+                                                <strong>Percent</strong>
+                                            </div>
+                                            <div class="col-lg-4 text-center p-0">
+                                                <strong class="score">{{ score.total_stories_score }}</strong><br>
+                                                <strong>Attempted</strong>
+                                            </div>
+                                            <div class="col-lg-4 text-center p-0">
+                                                <strong class="score">{{ score.total_correct_stories_score
+                                                    }}</strong><br>
+                                                <strong>Correct</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card mb-4" id="pronunciation-profile-card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Pronunciation</h5>
+                                    <div style="display: flex; justify-content: space-between;">
+                                        <a style="width: 120px;">/A/<i class="bi bi-check-circle-fill pronunciation-pass"></i></a>
+                                        <a class="pronunciation-rating-pass"><i class="bi bi-star-fill"></i><i
+                                                class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                                class="bi bi-star-fill"></i><i class="bi bi-star"></i></a>
+                                        <a class="pronunciation-history-play"><i class="bi bi-play-circle-fill"></i></a>
+                                    </div>
+                                    <div style="display: flex; justify-content: space-between;">
+                                        <a style="width: 120px;">/B/<i class="bi bi-check-circle-fill pronunciation-pass"></i></a>
+                                        <a class="pronunciation-rating-pass"><i class="bi bi-star-fill"></i><i
+                                                class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                                class="bi bi-star-fill"></i><i class="bi bi-star"></i></a>
+                                        <a class="pronunciation-history-play"><i class="bi bi-play-circle-fill"></i></a>
+                                    </div>
+                                    <div style="display: flex; justify-content: space-between;">
+                                        <a style="width: 120px;">/C/<i class="bi bi-exclamation-circle-fill pronunciation-fail"></i></i></a>
+                                        <a class="pronunciation-rating-fail"><i class="bi bi-star-fill"></i><i
+                                                class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                                class="bi bi-star"></i><i class="bi bi-star"></i></a>
+                                        <a class="pronunciation-history-play"><i class="bi bi-play-circle-fill"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card mb-4" id="vocabulary-profile-card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Vocabulary</h5>
+                                    <a>PART 1<i class="bi bi-check-circle-fill pronunciation-pass"></i></a>
+                                    <div style="display: flex; justify-content: space-between;">
+                                        <a class="profile-word-count">Word count: 200</a>
+                                        <a class="pronunciation-rating-pass"><i class="bi bi-star-fill"></i><i
+                                                class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                                class="bi bi-star-fill"></i><i class="bi bi-star"></i></a>
+                                        <a class="pronunciation-history-play"><i class="bi bi-play-circle-fill"></i></a>
+                                    </div>
+                                    <a>PART 2<i class="bi bi-exclamation-circle-fill pronunciation-fail"></i></a>
+                                    <div style="display: flex; justify-content: space-between;">
+                                        <a class="profile-word-count">Word count: 200</a>
+                                        <a class="pronunciation-rating-fail"><i class="bi bi-star-fill"></i><i
+                                                class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                                class="bi bi-star"></i><i class="bi bi-star"></i></a>
+                                        <a class="pronunciation-history-play"><i class="bi bi-play-circle-fill"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- ------------- -->
+    </div>
+</div>
+
+<!-- Update Profile Modal -->
+<div class="modal fade" id="updateProfileModal" tabindex="-1" role="dialog" aria-labelledby="updateProfileModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header d-flex flex-row justify-content-between">
+                <h5 class="modal-title">Update Profile</h5>
+                <button type="button" class="close" style="border: none; background-color: #fff; font-size: 30px;"
+                    data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Profile update form -->
+                <form id="updateProfileForm" onsubmit="submitProfileUpdateForm(event)">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group mb-2">
+                                <label for="firstName">First Name</label>
+                                <input type="text" class="form-control" id="firstName" name="firstName"
+                                    value="{{ current_user.first_name }}">
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group mb-2">
+                                <label for="lastName">Last Name</label>
+                                <input type="text" class="form-control" id="lastName" name="lastName"
+                                    value="{{ current_user.last_name }}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group mb-2">
+                                <label for="age">Age</label>
+                                <input type="number" class="form-control" id="age" name="age"
+                                    value="{{ current_user.age }}">
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group mb-2">
+                                <label for="dob">Date of Birth</label>
+                                <input type="date" class="form-control" id="dob" name="dob"
+                                    value="{% if current_user.dob %}{{ current_user.dob }}{% endif %}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group mb-2">
+                                <label for="gender">Gender</label>
+                                <select class="form-control" id="gender" name="gender">
+                                    <option {% if not current_user.gender %} selected {% endif %} disabled>Select an
+                                        Option
+                                    </option>
+                                    <option value="Male" {% if current_user.gender=='Male' %} selected {% endif %}>Male
+                                    </option>
+                                    <option value="Female" {% if current_user.gender=='Female' %} selected {% endif %}>
+                                        Female
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group mb-2">
+                                <label for="fatherName">Father's Name</label>
+                                <input type="text" class="form-control" id="fatherName" name="fatherName"
+                                    value="{% if current_user.father_name %}{{ current_user.father_name }}{% endif %}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group mb-2">
+                                <label for="motherName">Mother's Name</label>
+                                <input type="text" class="form-control" id="motherName" name="motherName"
+                                    value="{% if current_user.mother_name %}{{ current_user.mother_name }}{% endif %}">
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group mb-2">
+                                <label for="address">Address</label>
+                                <input type="text" class="form-control" id="address" name="address"
+                                    value="{% if current_user.address %}{{ current_user.address }}{% endif %}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group mb-2">
+                                <label for="state" class="form-label m-0">State</label>
+                                <select class="form-select" id="state" name="state">
+                                    <option {% if not current_user.state %} selected {% endif %} disabled>Select state
+                                    </option>
+                                    <option value="Andaman and Nicobar Islands" {% if
+                                        current_user.state=='Andaman and Nicobar Islands' %} selected {% endif %}>
+                                        Andaman and
+                                        Nicobar Islands</option>
+                                    <option value="Andhra Pradesh" {% if current_user.state=='Andhra Pradesh' %}
+                                        selected {% endif %}>Andhra Pradesh</option>
+                                    <option value="Arunachal Pradesh" {% if current_user.state=='Arunachal Pradesh' %}
+                                        selected {% endif %}>Arunachal Pradesh</option>
+                                    <option value="Assam" {% if current_user.state=='Assam' %} selected {% endif %}>
+                                        Assam
+                                    </option>
+                                    <option value="Bihar" {% if current_user.state=='Bihar' %} selected {% endif %}>
+                                        Bihar
+                                    </option>
+                                    <option value="Chandigarh" {% if current_user.state=='Chandigarh' %} selected {%
+                                        endif %}>
+                                        Chandigarh</option>
+                                    <option value="Chhattisgarh" {% if current_user.state=='Chhattisgarh' %} selected {%
+                                        endif %}>Chhattisgarh</option>
+                                    <option value="Dadra and Nagar Haveli and Daman and Diu" {% if
+                                        current_user.state=='Dadra and Nagar Haveli and Daman and Diu' %} selected {%
+                                        endif %}>
+                                        Dadra and Nagar Haveli and Daman and Diu</option>
+                                    <option value="Delhi" {% if current_user.state=='Delhi' %} selected {% endif %}>
+                                        Delhi
+                                    </option>
+                                    <option value="Goa" {% if current_user.state=='Goa' %} selected {% endif %}>Goa
+                                    </option>
+                                    <option value="Gujarat" {% if current_user.state=='Gujarat' %} selected {% endif %}>
+                                        Gujarat
+                                    </option>
+                                    <option value="Haryana" {% if current_user.state=='Haryana' %} selected {% endif %}>
+                                        Haryana
+                                    </option>
+                                    <option value="Himachal Pradesh" {% if current_user.state=='Himachal Pradesh' %}
+                                        selected {% endif %}>Himachal Pradesh</option>
+                                    <option value="Jammu and Kashmir" {% if current_user.state=='Jammu and Kashmir' %}
+                                        selected {% endif %}>Jammu and Kashmir</option>
+                                    <option value="Jharkhand" {% if current_user.state=='Jharkhand' %} selected {% endif
+                                        %}>
+                                        Jharkhand</option>
+                                    <option value="Karnataka" {% if current_user.state=='Karnataka' %} selected {% endif
+                                        %}>
+                                        Karnataka</option>
+                                    <option value="Kerala" {% if current_user.state=='Kerala' %} selected {% endif %}>
+                                        Kerala
+                                    </option>
+                                    <option value="Ladakh" {% if current_user.state=='Ladakh' %} selected {% endif %}>
+                                        Ladakh
+                                    </option>
+                                    <option value="Lakshadweep" {% if current_user.state=='Lakshadweep' %} selected {%
+                                        endif %}>
+                                        Lakshadweep</option>
+                                    <option value="Madhya Pradesh" {% if current_user.state=='Madhya Pradesh' %}
+                                        selected {% endif %}>Madhya Pradesh</option>
+                                    <option value="Maharashtra" {% if current_user.state=='Maharashtra' %} selected {%
+                                        endif %}>
+                                        Maharashtra</option>
+                                    <option value="Manipur" {% if current_user.state=='Manipur' %} selected {% endif %}>
+                                        Manipur
+                                    </option>
+                                    <option value="Meghalaya" {% if current_user.state=='Meghalaya' %} selected {% endif
+                                        %}>
+                                        Meghalaya</option>
+                                    <option value="Mizoram" {% if current_user.state=='Mizoram' %} selected {% endif %}>
+                                        Mizoram
+                                    </option>
+                                    <option value="Nagaland" {% if current_user.state=='Nagaland' %} selected {% endif
+                                        %}>
+                                        Nagaland</option>
+                                    <option value="Odisha" {% if current_user.state=='Odisha' %} selected {% endif %}>
+                                        Odisha
+                                    </option>
+                                    <option value="Puducherry" {% if current_user.state=='Puducherry' %} selected {%
+                                        endif %}>
+                                        Puducherry</option>
+                                    <option value="Punjab" {% if current_user.state=='Punjab' %} selected {% endif %}>
+                                        Punjab
+                                    </option>
+                                    <option value="Rajasthan" {% if current_user.state=='Rajasthan' %} selected {% endif
+                                        %}>
+                                        Rajasthan</option>
+                                    <option value="Sikkim" {% if current_user.state=='Sikkim' %} selected {% endif %}>
+                                        Sikkim
+                                    </option>
+                                    <option value="Tamil Nadu" {% if current_user.state=='Tamil Nadu' %} selected {%
+                                        endif %}>
+                                        Tamil Nadu</option>
+                                    <option value="Telangana" {% if current_user.state=='Telangana' %} selected {% endif
+                                        %}>
+                                        Telangana</option>
+                                    <option value="Tripura" {% if current_user.state=='Tripura' %} selected {% endif %}>
+                                        Tripura
+                                    </option>
+                                    <option value="Uttar Pradesh" {% if current_user.state=='Uttar Pradesh' %} selected
+                                        {% endif %}>Uttar Pradesh</option>
+                                    <option value="Uttarakhand" {% if current_user.state=='Uttarakhand' %} selected {%
+                                        endif %}>
+                                        Uttarakhand</option>
+                                    <option value="West Bengal" {% if current_user.state=='West Bengal' %} selected {%
+                                        endif %}>
+                                        West Bengal</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group mb-2">
+                                <label for="pincode">Pincode</label>
+                                <input type="text" class="form-control" id="pincode" name="pincode"
+                                    value="{% if current_user.pincode %}{{ current_user.pincode }}{% endif %}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-row justify-content-end mt-3">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-dark ms-2">Update</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ----- -->
+
+{% endblock %}

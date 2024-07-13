@@ -1,0 +1,352 @@
+{% extends 'therapist_base.html' %}
+
+{% block content %}
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+    *,
+    *:after,
+    *:before {
+        box-sizing: border-box;
+    }
+
+    :root {
+        --c-theme-primary: #008FFD;
+        --c-theme-primary-accent: #CBE8FF;
+        --c-bg-primary: #D6DAE0;
+        --c-bg-secondary: #EAEBEC;
+        --c-bg-tertiary: #FDFDFD;
+        --c-text-primary: #1F1F25;
+        --c-text-secondary: #999FA6;
+    }
+
+    button {
+        font: inherit;
+        cursor: pointer;
+
+        &:focus {
+            outline: 0;
+            border-radius: 50%;
+        }
+    }
+
+
+    .datepicker {
+        width: 100%;
+        background-color: var(--c-bg-tertiary);
+        border-radius: 10px;
+        box-shadow: 0 0 2px 0 rgba(#000, .2), 0 5px 10px 0 rgba(#000, .1);
+        padding: 1rem;
+    }
+
+    .datepicker-top {
+        margin-bottom: 1rem;
+    }
+
+    .btn-group {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 1rem;
+        margin-top: -.5rem;
+    }
+
+    .tag {
+        margin-right: .5rem;
+        margin-top: .5rem;
+        border: 0;
+        background-color: var(--c-bg-secondary);
+        border-radius: 10px;
+        padding: .5em .75em;
+        font-weight: 600;
+    }
+
+    .month-selector {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .arrow {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 0;
+        background-color: #FFF;
+        border-radius: 12px;
+        width: 2.5rem;
+        height: 2.5rem;
+        box-shadow: 0 0 2px 0 rgba(#000, .25), 0 0 10px 0 rgba(#000, .15);
+    }
+
+    .month-name {
+        font-weight: 600;
+    }
+
+    .datepicker-calendar {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        grid-row-gap: 1rem;
+    }
+
+    .day,
+    .date {
+        justify-self: center;
+    }
+
+    .day {
+        color: var(--c-text-secondary);
+        font-size: .875em;
+        font-weight: 500;
+        justify-self: center;
+    }
+
+    .date {
+        border: 0;
+        padding: 0;
+        width: 2.25rem;
+        height: 2.25rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 6px;
+        font-weight: 600;
+        border: 2px solid transparent;
+        background-color: transparent;
+        cursor: pointer;
+
+        &:focus {
+            outline: 0;
+            color: hsl(28, 26%, 50%);
+            border: 2px solid hsl(28, 26%, 50%);
+        }
+    }
+
+    .faded {
+        color: var(--c-text-secondary);
+    }
+
+    .current-day {
+        color: #FFF;
+        border-color: hsl(28, 26%, 50%);
+        background-color: hsl(28, 26%, 50%);
+        border-radius: 50%;
+
+        &:focus {
+            background-color: hsl(28, 26%, 40%);
+            color: #fff;
+            border-color: hsl(28, 26%, 40%);
+        }
+    }
+</style>
+
+<div id="therapist-dashboard">
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="row mb-4">
+                <div class="card" id="upcoming-sessions-card">
+                    <div class="card-body">
+                        <h4 class="card-title mb-4">Upcoming Sessions</h4>
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between mb-2">
+                                    <strong>Siddhant Sabale (Age 8)</strong>
+                                    <strong>10:00 AM | 11 Apr 2024</strong>
+                                </div>
+                                <p>
+                                <ul class="ps-4">
+                                    <li>Warm-up exercises to loosen speech muscles</li>
+                                    <li>Targeted exercises for tongue and lip movements</li>
+                                    <li>Practice of specific challenging sounds or phonemes</li>
+                                    <li>Integration of target sounds into words, phrases, and sentences</li>
+                                    <li>Activities to promote carryover of skills into daily communication</li>
+                                </ul>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between mb-2">
+                                    <strong>Aarav Sharma (Age 6)</strong>
+                                    <strong>11:00 AM | 11 Apr 2024</strong>
+                                </div>
+                                <p>
+                                <ul class="ps-4">
+                                    <li>Discussion of progress and challenges</li>
+                                    <li>Techniques for managing and reducing stuttering</li>
+                                    <li>Practice of controlled breathing and gentle speech onset</li>
+                                    <li>Application of strategies in natural conversation contexts</li>
+                                    <li>Confidence-building and anxiety management techniques</li>
+                                </ul>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between mb-2">
+                                    <strong>Neha Desai (Age 8)</strong>
+                                    <strong>12:00 PM | 11 Apr 2024</strong>
+                                </div>
+                                <p>
+                                <ul class="ps-4">
+                                    <li>Vocabulary expansion and word retrieval exercises</li>
+                                    <li>Grammar and sentence structure improvement activities</li>
+                                    <li>Enhancing listening comprehension through various exercises</li>
+                                    <li>Tailoring activities to the client's language goals and interests</li>
+                                    <li>Personalized learning experience to promote engagement and progress</li>
+                                </ul>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="card" id="review-sessions-card">
+                    <div class="card-body">
+                        <h4 class="card-title mb-4">Review Sessions</h4>
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between">
+                                    <div>
+                                        <strong>Siddhant Sabale</strong>
+                                        <a class="profile-session-number ms-2" style="background-color: rgb(194, 227, 255);">Session 1</a>
+                                    </div>
+                                    <a>10 Apr 2024</a>
+                                </div>
+                                <p class="mt-3">During today's session, Siddhant actively engaged
+                                    in exercises
+                                    aimed at enhancing expressive language skills and social interaction. He
+                                    demonstrated significant progress in articulating thoughts and feelings, employing
+                                    descriptive language with more ease. Through role-playing scenarios and visual aids,
+                                    Siddhant showed improved understanding of social cues and
+                                    displayed enhanced
+                                    reciprocity during interactions. Sensory modulation techniques were seamlessly
+                                    integrated to address any sensory sensitivities, resulting in increased comfort and
+                                    engagement. Moving forward, we plan to further explore advanced communication
+                                    strategies and continue addressing sensory needs to foster continued growth and
+                                    development.</p>
+                                <div class="d-flex justify-content-end">
+                                    <a style="color: hsl(28, 26%, 50%); font-weight: bold;">View Details<i
+                                            class="bi bi-arrow-right-circle-fill ms-1"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between">
+                                    <div>
+                                        <strong>Aarav Sharma</strong>
+                                        <a class="profile-session-number ms-2" style="background-color: rgb(194, 227, 255);">Session 2</a>
+                                    </div>
+                                    <a>07 Apr 2024</a>
+                                </div>
+                                <p class="mt-3">
+                                    In today's session with Aarav , we focused on fostering
+                                    communication
+                                    skills and social engagement. He actively participated in various activities
+                                    aimed at expanding vocabulary and practicing sentence formation. Notably, Aarav
+                                    demonstrated increased confidence in initiating and maintaining conversations,
+                                    showcasing progress in pragmatic language use. By incorporating sensory-friendly
+                                    approaches, we ensured a conducive environment for learning, allowing him to
+                                    fully engage in the session. Looking ahead, we aim to continue building on this
+                                    momentum, further refining communication abilities and promoting social interactions
+                                    both within and outside therapy sessions.</p>
+                                <div class="d-flex justify-content-end">
+                                    <a style="color: hsl(28, 26%, 50%); font-weight: bold;">View Details<i
+                                            class="bi bi-arrow-right-circle-fill ms-1"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="card" id="calendar-card">
+                <div class="card-body">
+                    <div id="calendar">
+                        <div class="datepicker">
+                            <div class="datepicker-top">
+                                <div class="btn-group">
+                                    <button class="tag">Today</button>
+                                    <button class="tag">Tomorrow</button>
+                                    <button class="tag">In 2 days</button>
+                                </div>
+                                <div class="month-selector">
+                                    <button class="arrow"><i class="bi bi-chevron-double-left"></i></button>
+                                    <span class="month-name">April 2024</span>
+                                    <button class="arrow"><i class="bi bi-chevron-double-right"></i></button>
+                                </div>
+                            </div>
+                            <div class="datepicker-calendar">
+                                <span class="day">Mo</span>
+                                <span class="day">Tu</span>
+                                <span class="day">We</span>
+                                <span class="day">Th</span>
+                                <span class="day">Fr</span>
+                                <span class="day">Sa</span>
+                                <span class="day">Su</span>
+                                <button class="date faded">30</button>
+                                <button class="date">1</button>
+                                <button class="date">2</button>
+                                <button class="date">3</button>
+                                <button class="date">4</button>
+                                <button class="date">5</button>
+                                <button class="date">6</button>
+                                <button class="date">7</button>
+                                <button class="date">8</button>
+                                <button class="date">9</button>
+                                <button class="date">10</button>
+                                <button class="date current-day">11</button>
+                                <button class="date">12</button>
+                                <button class="date">13</button>
+                                <button class="date">14</button>
+                                <button class="date">15</button>
+                                <button class="date">16</button>
+                                <button class="date">17</button>
+                                <button class="date">18</button>
+                                <button class="date">19</button>
+                                <button class="date">20</button>
+                                <button class="date">21</button>
+                                <button class="date">22</button>
+                                <button class="date">23</button>
+                                <button class="date">24</button>
+                                <button class="date">25</button>
+                                <button class="date">26</button>
+                                <button class="date">27</button>
+                                <button class="date">28</button>
+                                <button class="date">29</button>
+                                <button class="date">30</button>
+                                <button class="date">31</button>
+                                <button class="date faded">1</button>
+                                <button class="date faded">2</button>
+                                <button class="date faded">3</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h5>10:00 AM</h5>
+                            <h5>Appointment (Siddhant Sabale)</h5>
+                        </div>
+                    </div>
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h5>11:00 AM</h5>
+                            <h5>Appointment (Aarav Sharma)</h5>
+                        </div>
+                    </div>
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h5>12:00 PM</h5>
+                            <h5>Appointment (Neha Desai)</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

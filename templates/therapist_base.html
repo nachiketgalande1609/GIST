@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <title>GIST</title>
+</head>
+
+<body>
+
+    {% include 'navbar.html' %}
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2 sidebar">
+                <!-- Sidebar -->
+                <div class="card">
+                    <a href="{{ url_for('add_patient') }}" id="sidebar-add-patient-btn"><i class="bi bi-person-fill-add me-2"></i>New User</a>
+                </div>
+                <a href="{{url_for('therapist_dashboard')}}" class="sidebar-link">
+                    <div class="card">
+                        <h2 class="card-title"><i class="bi bi-grid-1x2-fill me-2"></i>Dashboard</h2>
+                    </div>
+                </a>
+                <a href="{{url_for('patient_search')}}" class="sidebar-link">
+                    <div class="card">
+                        <h2 class="card-title"><i class="bi bi-people-fill me-2"></i>User Details</h2>
+                    </div>
+                </a>
+                <!-- /#sidebar -->
+            </div>
+            <div class="col-md-10 p-0">
+                <!-- Main content area -->
+                {% block content %}
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+
+
+    <script src="../static/js/bootstrap.bundle.min.js"></script>
+    <script src="../static/js/jquery-3.5.1.slim.min.js"></script>
+    <script src="../static/js/script.js"></script>
+</body>
+
+</html>

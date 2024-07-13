@@ -1,0 +1,64 @@
+{% extends 'user_base.html' %}
+
+{% block content %}
+
+
+<div id="pronunciation">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{{ url_for('profile') }}">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Pronunciation</li>
+        </ol>
+    </nav>
+    <div class="card" id="pronunciation-card">
+        <div class="row">
+            <div class="col-lg-2" id="sound-section">
+                <h4 class="mb-3">Select a sound</h4>
+                {% for letter in letters %}
+                <div class="card d-flex flex-row align-items-center justify-content-center mb-4 letter-card-parent">
+                    <div class="w-100 text-center p-2 letter-card" onclick="highlightLetterCard(this)">
+                        <h4 class="me-2">/{{ letter }}/</h4>
+                    </div>
+                    <div id="pronunciation-speak-btn" class="pronunciation-speak-btn"
+                        onclick="speakWord('{{ letter }}')">
+                        <i class="bi bi-volume-up"></i>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="col-lg-10" id="action-section">
+                <h4 class="mb-3">Select an action</h4>
+                <div class="row mb-4">
+                    <div class="col-lg-3">
+                        <a id="prac-with-words-button" class="action-center-button">
+                            <div class="card text-center pronunciation-action-card">
+                                <strong><i class="bi bi-alphabet me-2"></i>Practice with words</strong>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-3">
+                        <a id="tongue-twisters-button" class="action-center-button">
+                            <div class="card text-center pronunciation-action-card">
+                                <strong><i class="bi bi-puzzle me-2"></i>Tongue Twisters</strong>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="action-content">
+                    <div id="pronunciation-loading-icon" class="spinner-border" role="status" style="display: none;">
+                    </div>
+                    <iframe id="pronunciation-iframe" src="" frameborder="0" width="100%" scrolling="auto"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<script>
+
+</script>
+
+{% endblock %}
